@@ -56,6 +56,10 @@ hbs.registerHelper('__n', function () {
   return i18n.__n.apply(this, arguments);
 });
 
+hbs.registerHelper('__lang', function () {
+  return i18n.getLocale.call(this);
+});
+
 app.use('/', routes);
 app.use('/users', users);
 
