@@ -8,6 +8,8 @@ var i18n = require('i18n');
 //var exphbs  = require('express-handlebars');
 var hbs  = require('hbs');
 
+var routes = require('./routes/index');
+var users = require('./routes/user');
 
 i18n.configure({
   locales: ['es', 'en'],
@@ -26,6 +28,9 @@ var app = module.exports = express();
 var env = process.env.NODE_ENV || 'development';
 app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env == 'development';
+
+app.engine('hbs', hbs.__express);
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
 if (app.get('env') === 'development') {
   app.set('views', path.join(__dirname, 'views'));
 }
@@ -33,7 +38,7 @@ else {
   app.set('views', path.join(__dirname, 'views/dst'));
 }
 app.set('view engine', 'hbs');
-app.engine('hbs', hbs.__express);
+
 
 // app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(logger('dev'));
@@ -45,8 +50,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(i18n.init);
 
-var routes = require('./routes/index');
-var users = require('./routes/user');
+
+
 
 // register hbs helpers in res.locals' context which provides this.locale
 hbs.registerHelper('__', function () {

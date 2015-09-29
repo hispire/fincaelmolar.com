@@ -13,54 +13,50 @@ function render(template, req, res) {
 
 }
 
+router.use(function(req, res, next) {
+  console.log(req.getLocale());
+  next();
+})
 
-router.get('/:locale?', function(req, res) {
-  res.cookie('locale', req.params.locale);
+router.get('/', function(req, res) {
+  console.log(req.getLocale());
   render('index', req, res);
 });
 
 router.get('/lang/:locale', function(req, res, next) {
   res.cookie('locale', req.params.locale);
-  res.redirect('/' + req.params.locale);
+  res.redirect('back');
 })
 
-router.get('/:locale/wines', function(req, res) {
-  res.cookie('locale', req.params.locale);
+router.get('/wines', function(req, res) {
    render('products', req, res);
 });
 
-router.get('/:locale/wines/quantum', function(req, res) {
-  res.cookie('locale', req.params.locale);
+router.get('/wines/quantum', function(req, res) {
    render('quantum', req, res);
 });
 
-router.get('/:locale/wines/finca', function(req, res) {
-  res.cookie('locale', req.params.locale);
+router.get('/wines/finca', function(req, res) {
    render('finca', req, res);
 });
 
-router.get('/:locale/wines/quantum-ice', function(req, res) {
-  res.cookie('locale', req.params.locale);
+router.get('/wines/quantum-ice', function(req, res) {
    render('quantum-ice', req, res);
 });
 
-router.get('/:locale/tourism', function(req, res) {
-  res.cookie('locale', req.params.locale);
+router.get('/tourism', function(req, res) {
    render('tourism', req, res);
 });
 
-router.get('/:locale/about', function(req, res) {
-  res.cookie('locale', req.params.locale);
+router.get('/about', function(req, res) {
    render('about', req, res);
 });
 
-router.get('/:locale/organic-production', function(req, res) {
-  res.cookie('locale', req.params.locale);
+router.get('/organic-production', function(req, res) {
    render('organic', req, res);
 });
 
-router.get('/:locale/winery', function(req, res) {
-  res.cookie('locale', req.params.locale);
+router.get('/winery', function(req, res) {
    render('winery', req, res);
 });
 
