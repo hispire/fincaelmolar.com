@@ -1,9 +1,9 @@
+<title>Finca El Molar - {{{__ 'our wines'}}} | {{{__ 'quantum hielo'}}}</title>
 <div id="bg-hielo-detail" class="bg--full-fixed bg-wine-detail animated fadeIn"></div>
 <section class="animated fadeIn" id="wine-detail">
-  <a data-pjax class="button--close" href="/">
-      <i class="fa fa-home fa-2x"></i>
-  </a>
+{{> button_menu}}
   <div class="wine__detail animated fadeInLeft">
+    <img src="/img/hielo.png" class="hidden" alt="" />
       <div class="portable-text--center desk-text--left" id="hielo-detail">
         <div class="wine__title inline u-11/12 u-desk-pl">
           <h2 class="inline">{{{__ 'quantum hielo'}}} <hr class="line line--left line--thick green"></h2>
@@ -67,38 +67,8 @@
           </div>
 <div class="layout animated wines__list fadeInUp">
     <ul class="list-inline list-bare">
-      <li class="layout__item u-6/12-desk portable-text--center desk-text--left u-desk-pl+ u-mb+-portable" id="quantum">
-        <div class="wine__title">
-          <h2>Quantum 2012</h2>
-        </div>
-        <div class="wine__description">
-          <h3>Merlot, Cabernet Sauvignon, Syrah</h3>
-        </div>
-        <div class="inline u-11/12 u-8/12-desk wine__info mb+">
-          <p>{{{__ 'quantum extract'}}}</p>
-        </div>
-        <div class="mb+">
-          <a data-pjax href="/wines/quantum">
-            <div class="btn btn--light">{{{__ 'details'}}}</div>
-          </a>
-        </div>
-      </li>
-      <li class="layout__item u-6/12-desk portable-text--center desk-text--left u-desk-pl+" id="finca">
-        <div class="wine__title">
-          <h2>Finca el molar <small>2013</small></h2>
-        </div>
-        <div class="wine__description">
-          <h3>Merlot, Cabernet Sauvignon, Syrah</h3>
-        </div>
-        <div class="inline u-11/12 u-8/12-desk wine__info mb+">
-          <p>{{{__ 'finca extract'}}}</p>
-        </div>
-        <div class="mb+">
-          <a data-pjax href="/wines/finca">
-            <div class="btn btn--light">{{{__ 'details'}}}</div>
-          </a>
-        </div>
-      </li>
+      {{> quantum_card}}
+      {{> finca_card}}
 
     </ul>
   </div>

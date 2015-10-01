@@ -36,6 +36,11 @@ $ms-ratio: $golden;
   right: 0;
 }
 
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
 .font--light {
   font-weight: 300;
 }

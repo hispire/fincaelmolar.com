@@ -2633,6 +2633,10 @@ html {
   left: 0;
   right: 0; }
 
+.hidden {
+  visibility: hidden;
+  display: none; }
+
 .font--light {
   font-weight: 300; }
 
