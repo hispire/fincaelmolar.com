@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var i18n = require('i18n');
 //var exphbs  = require('express-handlebars');
 var hbs  = require('hbs');
+var app = express();
 
 var routes = require('./routes/index');
 var users = require('./routes/user');
@@ -17,11 +18,6 @@ i18n.configure({
   directory: __dirname + "/locales"
 });
 
-
-
-
-var app = module.exports = express();
-
 // view engine setup
 
 
@@ -31,6 +27,7 @@ app.locals.ENV_DEVELOPMENT = env == 'development';
 
 app.engine('hbs', hbs.__express);
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
+
 if (app.get('env') === 'development') {
   app.set('views', path.join(__dirname, 'views'));
 }
@@ -49,21 +46,6 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(i18n.init);
-
-
-
-
-// register hbs helpers in res.locals' context which provides this.locale
-hbs.registerHelper('__', function () {
-  return i18n.__.apply(this, arguments);
-});
-hbs.registerHelper('__n', function () {
-  return i18n.__n.apply(this, arguments);
-});
-
-hbs.registerHelper('__lang', function () {
-  return i18n.getLocale.call(this);
-});
 
 app.use('/', routes);
 app.use('/users', users);

@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var app = require('../app');
 
 /* GET home page. */
 function render(template, req, res) {
+  //if (req.params.locale) res.cookie('locale', req.params.locale);
   if ( req.headers['x-pjax']) {
     res.render(template, {layout: null});
   }
@@ -13,50 +13,63 @@ function render(template, req, res) {
 
 }
 
-router.use(function(req, res, next) {
-  console.log(req.getLocale());
+router.use(function (req, res, next) {
+    // mustache helper
+    res.locals.lg = '/';
+
+    next();
+});
+
+router.param('locale', function(req, res, next, locale) {
+  res.cookie('locale', locale);
+  res.setLocale(locale);
+  res.locals.lg =  '/' + req.getLocale()  + '/';
   next();
 })
 
+
 router.get('/', function(req, res) {
-  console.log(req.getLocale());
+  //console.log(req);
   render('index', req, res);
 });
 
-router.get('/lang/:locale', function(req, res, next) {
-  res.cookie('locale', req.params.locale);
-  res.redirect('back');
+router.get('/:locale?', function(req, res, next) {
+  if (req.params.locale == 'es' || req.params.locale == 'en') {
+    render('index', req, res);
+  }
+  else next();
 })
 
-router.get('/wines', function(req, res) {
+router.get('/:locale?/wines', function(req, res) {
+  //console.log(req);
    render('products', req, res);
 });
 
-router.get('/wines/quantum', function(req, res) {
+router.get('/:locale?/wines/quantum', function(req, res) {
    render('quantum', req, res);
 });
 
-router.get('/wines/finca', function(req, res) {
+router.get('/:locale?/wines/finca', function(req, res) {
    render('finca', req, res);
 });
 
-router.get('/wines/quantum-ice', function(req, res) {
+router.get('/:locale?/wines/quantum-ice', function(req, res) {
    render('quantum-ice', req, res);
 });
 
-router.get('/tourism', function(req, res) {
+router.get('/:locale?/tourism', function(req, res) {
    render('tourism', req, res);
 });
 
-router.get('/about', function(req, res) {
+router.get('/:locale?/about', function(req, res) {
    render('about', req, res);
 });
 
-router.get('/organic-production', function(req, res) {
+router.get('/:locale?/organic-production', function(req, res) {
    render('organic', req, res);
 });
 
-router.get('/winery', function(req, res) {
+router.get('/:locale?/winery', function(req, res) {
    render('winery', req, res);
 });
 
