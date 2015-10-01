@@ -11,6 +11,13 @@ ga('send', 'pageview');
 $(function(){
   //PJAX init
   $(document).pjax('a[data-pjax]', '#data-container');
+  $(document).on('pjax:complete', function() {
+    console.log('Complete');
+          FB.XFBML.parse();
+          var url = window.location.href;
+          $('.fb-share-button').attr('data-href', url);
+
+  });
 
   $(window).load(function() {
     // Animate loader off screen

@@ -1,9 +1,9 @@
+<title>Finca El Molar - {{{__ 'our wines'}}} | Finca El Molar 2013</title>
 <div id="bg-finca-detail" class="bg--full-fixed bg-wine-detail animated fadeIn"></div>
 <section class="animated fadeIn" id="wine-detail">
-  <a data-pjax class="button--close" href="/">
-      <i class="fa fa-home fa-2x"></i>
-  </a>
+{{> button_menu}}
   <div class="wine__detail animated fadeInLeft">
+    <img src="/img/elmolar.png" class="hidden" alt="" />
       <div class="portable-text--center desk-text--left" id="finca-detail">
         <div class="wine__title inline u-11/12 u-desk-pl">
           <h2 class="inline">Finca el molar 2013 <hr class="line line--left line--thick green"></h2>
@@ -14,6 +14,7 @@
         <div class="inline u-11/12 u-8/12-desk wine__info mb+ u-desk-pl">
 
           <p class="mb+">{{{__ 'finca origin'}}}</p>
+            <div class="fb-share-button" data-href="" data-layout="box_count"></div>
 
           <table class="mb+" border="0">
             <tr>
@@ -67,38 +68,9 @@
           </div>
 <div class="layout animated wines__list fadeInUp">
     <ul class="list-inline list-bare">
-      <li class="layout__item u-6/12-desk portable-text--center desk-text--left u-desk-pl+ u-mb+-portable" id="quantum">
-        <div class="wine__title">
-          <h2>Quantum 2012</h2>
-        </div>
-        <div class="wine__description">
-          <h3>Merlot, Cabernet Sauvignon, Syrah</h3>
-        </div>
-        <div class="inline u-11/12 u-8/12-desk wine__info mb+">
-          <p>{{{__ 'quantum extract'}}}</p>
-        </div>
-        <div class="mb+">
-          <a data-pjax href="/wines/quantum">
-            <div class="btn btn--light">{{{__ 'details'}}}</div>
-          </a>
-        </div>
-      </li>
-      <li class="layout__item u-6/12-desk portable-text--center desk-text--left u-desk-pl+" id="hielo">
-        <div class="wine__title">
-          <h2>{{{__ 'quantum hielo'}}}</h2>
-        </div>
-        <div class="wine__description">
-          <h3>Cavernet Sauvignon</h3>
-        </div>
-        <div class="inline u-11/12 u-8/12-desk wine__info mb+">
-          <p>{{{__ 'hielo extract'}}}</p>
-        </div>
-        <div class="mb+">
-          <a data-pjax href="/wines/quantum-ice">
-            <div class="btn btn--light">{{{__ 'details'}}}</div>
-          </a>
-        </div>
-      </li>
+{{> quantum_card}}
+{{> quantumice_card}}
+
 
     </ul>
   </div>

@@ -46,7 +46,7 @@ router.get('/:locale?/wines', function(req, res) {
 });
 
 router.get('/:locale?/wines/quantum', function(req, res) {
-  console.log(req);
+  console.log(req.url);
    render('quantum', { title: 'Finca El Molar - ' + req.__('our wines') +  ' |  Quantum 2012' }, req, res);
 });
 
