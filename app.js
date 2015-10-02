@@ -45,9 +45,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(cookieParser());
+app.use(compress());  
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(i18n.init);
-app.use(compress());  
+
 
 app.use('/', routes);
 app.use('/users', users);
