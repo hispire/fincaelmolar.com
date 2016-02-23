@@ -3564,7 +3564,16 @@ blockquote {
   .thumb__img:hover, .thumb__img:focus {
     position: relative;
     z-index: 5; } }
+.logo-miembro {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 2rem 0; }
+  .logo-miembro img {
+    width: 40vw; }
+
 @media screen and (min-width: 64em) {
+  .logo-miembro img {
+    width: 30vw; }
+
   #logo {
     position: absolute;
     top: 0;
@@ -3737,7 +3746,10 @@ blockquote {
     font-weight: 300; }
 
   #winery p, #about p {
-    font-size: 1.61803em; } }
+    font-size: 1.61803em; }
+
+  .logo-miembro img {
+    width: 20vw; } }
 @media screen and (min-width: 121em) {
   html {
     font-size: 130%; }

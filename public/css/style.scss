@@ -1173,10 +1173,19 @@ blockquote {
   z-index: 5;
   }
 }
-
+.logo-miembro {
+  background-color: rgba(255, 255, 255, .6);
+  padding: 2rem 0;
+  img {
+    width: 40vw;
+  }
+}
 @media screen and (min-width: 64em) {
   html {
     //font-size: 120%;
+  }
+  .logo-miembro img {
+      width: 30vw;
   }
   #logo {
     position: absolute;
@@ -1384,6 +1393,9 @@ blockquote {
     p {
       font-size: ms(1);
     }
+  }
+  .logo-miembro img {
+      width: 20vw;
   }
 
 }
